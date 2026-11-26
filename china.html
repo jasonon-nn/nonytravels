@@ -21,7 +21,9 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="destinations.html" aria-current="page">Destinations</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
+            <li>
+                <button type="button" class="newsletter-trigger" data-open-dialog="newsletter-modal">Newsletter</button>
+            </li>
         </ul>
     </nav>
 
@@ -33,10 +35,15 @@
         <section class="content">
             <p>This article is a placeholder for a longer travel story about China. Begin with the journey into the country: the first impressions on arrival, the sounds and movement of the streets, and the small details that make a new place feel vivid. Later, replace this paragraph with a personal introduction that explains where the trip began and what inspired the visit.</p>
             <p>China is a vast country with landscapes and communities that differ greatly from one region to another. A route through busy city neighborhoods might lead to quiet riverside towns, mountain paths, or broad stretches of countryside. Use this section to describe the itinerary, how long each stop lasted, and what made each place distinct, while giving readers a sense of the distances involved.</p>
+            <h3>Beijing</h3>
             <p>In the city, daily life can unfold at a remarkable pace. Morning markets fill with fresh produce, commuters weave through stations, and small restaurants prepare for the lunch crowd. Take time to notice the quieter moments too: a park waking up, a family sharing tea, or a neighborhood shop opening its doors. These observations can help turn a list of sights into a story about the place and the people who live there.</p>
+            <h3>Shanghai</h3>
             <p>Food offers another way to understand a region. A meal might bring together familiar ingredients in an unexpected way, or introduce flavors and textures that are new to the traveler. Add details here about a memorable dish, where it was enjoyed, and how it was ordered. Mention useful context such as local dining customs or whether a dish is associated with a particular area, without suggesting that one experience represents the whole country.</p>
+            <h3>Datong</h3>
             <p>History is present in many layers, from well-known landmarks to everyday streets shaped by generations of change. Describe the places visited and what stood out, then add reliable background about their history and significance. A thoughtful account can balance striking architecture and scenic views with the stories that give those places meaning. Include practical details for future visitors, such as the best time to arrive or how much time to allow.</p>
+            <h3>Suzhou</h3>
             <p>Some of the most rewarding travel moments happen between planned activities. A delayed train, a wrong turn, or an unexpected conversation can change the shape of a day and reveal something that a schedule might have missed. Use this paragraph for a personal anecdote, including what happened, how it was handled, and what the experience taught you about traveling with patience and curiosity.</p>
+            <h3>Hangzhou</h3>
             <p>Travel also asks visitors to be thoughtful guests. Learn a few useful phrases, follow local guidance, respect rules at cultural and historic sites, and ask before photographing people. Be considerate of shared spaces and the environment, and stay flexible when plans change. These small choices can make a trip more comfortable for both visitors and the communities they encounter.</p>
             <p>When planning a visit, check current entry requirements, transport schedules, weather, and opening hours using dependable, up-to-date sources. Keep addresses written in a format that can be shared locally, allow extra time for transfers, and carry the essentials needed for a day out. Replace this placeholder with specific advice based on the places and season covered in the article.</p>
             <p>By the end of the journey, the details that remain may be simple ones: a view from a train window, the warmth of a bowl of noodles, or the welcome of someone who helped along the way. Close the finished article with a reflection on what changed or surprised you, and invite readers to discover the places that speak to their own interests. This text is temporary and should be updated with firsthand experiences and verified information.</p>
@@ -44,8 +51,90 @@
 
     </main>
 
-	<footer>
-		<p>&copy; Nony Travels</p>
-	</footer>
+	  <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p class="footer-name">Nony Travels</p>
+                <p>Personal stories. Useful guides. A world to explore.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <p class="label">Explore</p>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li>
+                        <button type="button" class="newsletter-trigger" data-open-dialog="newsletter-modal">Newsletter</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="copyright">&copy; Nony Travels. All rights reserved.<br>
+                <a href="https://www.instagram.com/anonymiti3/">Jason On</a>
+            </p>
+
+            <ul class="legal">
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Newsletter signup modal (one copy, opened by the nav and footer buttons) -->
+    <dialog id="newsletter-modal" aria-labelledby="newsletter-title">
+        <form method="dialog">
+            <button type="submit" aria-label="Close newsletter signup">Close</button>
+        </form>
+
+        <form action="#" method="post" data-newsletter-form novalidate>
+            <h2 class="dialog-title" id="newsletter-title">Get travel stories in your inbox</h2>
+            <p class="form-note">All fields are required.</p>
+
+            <div class="field">
+                <label for="newsletter-name">Full name</label>
+                <input id="newsletter-name" name="name" type="text" autocomplete="name" required aria-describedby="newsletter-name-error">
+                <p class="field-error" id="newsletter-name-error" data-error-for="name"></p>
+            </div>
+
+            <div class="field">
+                <label for="newsletter-email">Email address</label>
+                <input id="newsletter-email" name="email" type="email" autocomplete="email" required aria-describedby="newsletter-email-error">
+                <p class="field-error" id="newsletter-email-error" data-error-for="email"></p>
+            </div>
+
+            <fieldset aria-describedby="newsletter-interests-error">
+                <legend>Content preferences</legend>
+                <div class="choice-group">
+                    <label class="choice"><input type="checkbox" name="interests" value="destination-guides"> Destination guides</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="travel-tips"> Travel tips</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="food-culture"> Food &amp; culture</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="budget-travel"> Budget travel</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="adventure"> Adventure &amp; outdoors</label>
+                </div>
+                <p class="field-error" id="newsletter-interests-error" data-error-for="interests"></p>
+            </fieldset>
+
+            <fieldset aria-describedby="newsletter-frequency-error">
+                <legend>Email frequency</legend>
+                <div class="choice-group">
+                    <label class="choice"><input type="radio" name="frequency" value="weekly"> Weekly</label>
+                    <label class="choice"><input type="radio" name="frequency" value="biweekly"> Every two weeks</label>
+                    <label class="choice"><input type="radio" name="frequency" value="monthly"> Monthly</label>
+                </div>
+                <p class="field-error" id="newsletter-frequency-error" data-error-for="frequency"></p>
+            </fieldset>
+
+            <div class="field">
+                <label class="choice consent">
+                    <input type="checkbox" name="consent" value="yes" required aria-describedby="newsletter-consent-error">
+                    I agree to receive the travel newsletter by email and understand I can unsubscribe at any time.
+                </label>
+                <p class="field-error" id="newsletter-consent-error" data-error-for="consent"></p>
+            </div>
+
+            <button type="submit">Subscribe</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+    </dialog>
 </body>
 </html>

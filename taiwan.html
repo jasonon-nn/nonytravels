@@ -19,7 +19,9 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="destinations.html" aria-current="page">Destinations</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
+            <li>
+                <button type="button" class="newsletter-trigger" data-open-dialog="newsletter-modal">Newsletter</button>
+            </li>
         </ul>
     </nav>
 
@@ -27,11 +29,102 @@
         <section class="intro">
             <h2>Taiwan</h2>
             <p>Discover vibrant cities, mountain landscapes, and unforgettable street food.</p>
+
+            <h3>Taipei</h3>
+            <p>Placeholder text for Taipei.</p>
+
+            <h3>New Taipei City</h3>
+            <p>Placeholder text for New Taipei City.</p>
+
+            <h3>Alishan Township</h3>
+            <p>Placeholder text for Alishan Township.</p>
         </section>
     </main>
 
-	<footer>
-		<p>&copy; Nony Travels</p>
-	</footer>
+	  <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p class="footer-name">Nony Travels</p>
+                <p>Personal stories. Useful guides. A world to explore.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <p class="label">Explore</p>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li>
+                        <button type="button" class="newsletter-trigger" data-open-dialog="newsletter-modal">Newsletter</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="copyright">&copy; Nony Travels. All rights reserved.<br>
+                <a href="https://www.instagram.com/anonymiti3/">Jason On</a>
+            </p>
+
+            <ul class="legal">
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Newsletter signup modal (one copy, opened by the nav and footer buttons) -->
+    <dialog id="newsletter-modal" aria-labelledby="newsletter-title">
+        <form method="dialog">
+            <button type="submit" aria-label="Close newsletter signup">Close</button>
+        </form>
+
+        <form action="#" method="post" data-newsletter-form novalidate>
+            <h2 class="dialog-title" id="newsletter-title">Get travel stories in your inbox</h2>
+            <p class="form-note">All fields are required.</p>
+
+            <div class="field">
+                <label for="newsletter-name">Full name</label>
+                <input id="newsletter-name" name="name" type="text" autocomplete="name" required aria-describedby="newsletter-name-error">
+                <p class="field-error" id="newsletter-name-error" data-error-for="name"></p>
+            </div>
+
+            <div class="field">
+                <label for="newsletter-email">Email address</label>
+                <input id="newsletter-email" name="email" type="email" autocomplete="email" required aria-describedby="newsletter-email-error">
+                <p class="field-error" id="newsletter-email-error" data-error-for="email"></p>
+            </div>
+
+            <fieldset aria-describedby="newsletter-interests-error">
+                <legend>Content preferences</legend>
+                <div class="choice-group">
+                    <label class="choice"><input type="checkbox" name="interests" value="destination-guides"> Destination guides</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="travel-tips"> Travel tips</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="food-culture"> Food &amp; culture</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="budget-travel"> Budget travel</label>
+                    <label class="choice"><input type="checkbox" name="interests" value="adventure"> Adventure &amp; outdoors</label>
+                </div>
+                <p class="field-error" id="newsletter-interests-error" data-error-for="interests"></p>
+            </fieldset>
+
+            <fieldset aria-describedby="newsletter-frequency-error">
+                <legend>Email frequency</legend>
+                <div class="choice-group">
+                    <label class="choice"><input type="radio" name="frequency" value="weekly"> Weekly</label>
+                    <label class="choice"><input type="radio" name="frequency" value="biweekly"> Every two weeks</label>
+                    <label class="choice"><input type="radio" name="frequency" value="monthly"> Monthly</label>
+                </div>
+                <p class="field-error" id="newsletter-frequency-error" data-error-for="frequency"></p>
+            </fieldset>
+
+            <div class="field">
+                <label class="choice consent">
+                    <input type="checkbox" name="consent" value="yes" required aria-describedby="newsletter-consent-error">
+                    I agree to receive the travel newsletter by email and understand I can unsubscribe at any time.
+                </label>
+                <p class="field-error" id="newsletter-consent-error" data-error-for="consent"></p>
+            </div>
+
+            <button type="submit">Subscribe</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+    </dialog>
 </body>
 </html>
