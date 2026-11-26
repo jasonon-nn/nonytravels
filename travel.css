@@ -176,7 +176,7 @@ ul {
 }
 
 .site-nav a[aria-current="page"] {
-	font-weight: 600;
+	font-weight: 400;
 	border-bottom-color: var(--color-primary);
 }
 
