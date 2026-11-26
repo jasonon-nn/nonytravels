@@ -1,0 +1,1 @@
+This website is designed to showcase cities and countries around the world by highlighting their unique cuisine, history, and cultural identity. Its goal is to provide visitors with an engaging way to discover different destinations and learn more about what makes each place special.
