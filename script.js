@@ -176,3 +176,116 @@ document.querySelectorAll("form[data-newsletter-form]").forEach((form) => {
 		}
 	});
 });
+
+/* Back to top button */
+const backToTop = document.querySelector(".back-to-top");
+
+if (backToTop) {
+	const SHOW_AFTER = 400; // px scrolled before the button appears
+	const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+	function updateBackToTop() {
+		backToTop.classList.toggle("is-visible", window.scrollY > SHOW_AFTER);
+	}
+
+	window.addEventListener("scroll", updateBackToTop, { passive: true });
+	updateBackToTop();
+
+	backToTop.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "auto" : "smooth" });
+	});
+}
+
+/* Slideshows */
+// Any element with class "slideshow" becomes a slideshow. Without JS,
+// all slides simply show stacked, so the content is never hidden.
+document.querySelectorAll(".slideshow").forEach((show) => {
+	const slides = Array.from(show.querySelectorAll(".slide"));
+	const prev = show.querySelector(".slide-prev");
+	const next = show.querySelector(".slide-next");
+	const count = show.querySelector(".slide-count");
+	if (slides.length < 2) return;
+
+	let current = 0;
+
+	function showSlide(index) {
+		current = (index + slides.length) % slides.length; // wraps around
+		slides.forEach((slide, i) => {
+			slide.hidden = i !== current;
+		});
+		if (count) count.textContent = `${current + 1} / ${slides.length}`;
+	}
+
+	prev.addEventListener("click", () => showSlide(current - 1));
+	next.addEventListener("click", () => showSlide(current + 1));
+
+	// Left/right arrow keys while focus is inside the slideshow
+	show.addEventListener("keydown", (event) => {
+		if (event.key === "ArrowLeft") showSlide(current - 1);
+		if (event.key === "ArrowRight") showSlide(current + 1);
+	});
+
+	showSlide(0);
+});
+
+/* Page sidebar: built automatically from the headings in .page-content */
+const pageNav = document.querySelector(".page-nav");
+const pageContent = document.querySelector(".page-content");
+
+if (pageNav && pageContent) {
+	const target = pageNav.querySelector("nav");
+	const headings = pageContent.querySelectorAll("h2, h3.city-heading, h4.city-subheading");
+	const usedIds = new Set(Array.from(document.querySelectorAll("[id]"), (el) => el.id));
+
+	// "Jing'an Temple" -> "jing-an-temple" (adds -2, -3... if a name repeats)
+	function makeId(text) {
+		const base = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section";
+		let id = base;
+		let n = 2;
+		while (usedIds.has(id)) id = `${base}-${n++}`;
+		usedIds.add(id);
+		return id;
+	}
+
+	if (target && headings.length > 0) {
+		const list = document.createElement("ul");
+		let lastTopItem = null;
+
+		headings.forEach((heading) => {
+			const label = heading.textContent.trim();
+			if (!heading.id) heading.id = makeId(label);
+
+			const link = document.createElement("a");
+			link.href = `#${heading.id}`;
+			link.textContent = label;
+
+			const item = document.createElement("li");
+			item.append(link);
+
+			if (heading.tagName === "H4" && lastTopItem) {
+				// Attractions nest under their city
+				let sub = lastTopItem.querySelector("ul");
+				if (!sub) {
+					sub = document.createElement("ul");
+					lastTopItem.append(sub);
+				}
+				sub.append(item);
+			} else {
+				list.append(item);
+				lastTopItem = item;
+			}
+		});
+
+		target.append(list);
+		pageNav.classList.add("is-ready");
+
+		// Open on desktop, collapsed on phones (the visitor can still toggle it)
+		const desktop = window.matchMedia("(min-width: 801px)");
+		const syncOpen = () => {
+			pageNav.open = desktop.matches;
+		};
+		syncOpen();
+		desktop.addEventListener("change", syncOpen);
+	}
+}
+

@@ -32,8 +32,34 @@
 		</section>
 
 		<section aria-label="Destination articles">
-			<ul>
-				<li><article><h3><a href="china.html">China</a></h3><p>Discover remarkable places, cultures, and experiences across China.</p></article></li>
+			<ul class="destination-list">
+				<li>
+					<article>
+						<h3><a href="china.html">China</a></h3>
+
+						<div class="slideshow" aria-roledescription="carousel" aria-label="China photos">
+							<figure class="slide" aria-roledescription="slide">
+								<img src="images/china/forbiddencity.jpg" alt="Halls and courtyard of the Forbidden City in Beijing" width="1200" height="675">
+							</figure>
+							<figure class="slide" aria-roledescription="slide">
+								<img src="images/china/thebund.jpg" alt="The Bund waterfront with Pudong's skyline across the Huangpu River" loading="lazy" width="1200" height="675">
+							</figure>
+							<figure class="slide" aria-roledescription="slide">
+								<img src="images/china/hangzhoulake.jpg" alt="West Lake with willow-lined paths and hills beyond" loading="lazy" width="1200" height="675">
+							</figure>
+							<figure class="slide" aria-roledescription="slide">
+								<img src="images/china/datongwall.jpg" alt="The restored ancient city walls of Datong" loading="lazy" width="1200" height="675">
+							</figure>
+							<div class="slideshow-controls">
+								<button type="button" class="slide-prev" aria-label="Previous photo">&larr;</button>
+								<p class="slide-count" aria-live="polite"></p>
+								<button type="button" class="slide-next" aria-label="Next photo">&rarr;</button>
+							</div>
+						</div>
+
+						<p>Discover remarkable places, cultures, and experiences across China.</p>
+					</article>
+				</li>
 				<li><article><h3><a href="japan.html">Japan</a></h3><p>Find stories from Japan's cities, countryside, and traditions.</p></article></li>
 				<li><article><h3><a href="taiwan.html">Taiwan</a></h3><p>Discover Taiwan's vibrant cities, mountain landscapes, and rich food culture.</p></article></li>
 				<li><article><h3><a href="hongkong.html">Hong Kong</a></h3><p>Explore Hong Kong's lively neighborhoods, harbor views, and local traditions.</p></article></li>

@@ -733,3 +733,281 @@ dialog button:disabled {
         grid-template-columns: 1fr;
     }
 }
+
+/* Cities Headers section */
+.city-heading {
+	font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+	margin: 2rem 0 0.5rem;
+	padding-bottom: 0.25rem;
+	border-bottom: 2px solid var(--color-accent);
+}
+
+.city-subheading {
+	font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+	font-weight: 400;
+	margin: 1.25rem 0 0.5rem;
+}
+
+
+/* City photos: one image fills the row; two or three share it evenly */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0.5rem 0 1rem;
+}
+
+.photo-grid figure {
+    margin: 0;
+}
+
+.photo-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--color-line);
+}
+
+.photo-grid figcaption {
+    margin-top: 0.4rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+}
+
+/* Four photos: two by two */
+.photo-grid-four {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Three photos: three across */
+.photo-grid-three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 700px) {
+    .photo-grid-three {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid-four,
+    .photo-grid-three {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Page sidebar */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+.page-layout {
+	display: grid;
+	grid-template-columns: 14rem minmax(0, 1fr);
+	gap: 3rem;
+	align-items: start;
+	margin-top: 2rem;
+}
+
+/* Hidden until the script has built the links */
+.page-nav:not(.is-ready) {
+	display: none;
+}
+
+.page-nav {
+	position: sticky;
+	top: 1rem;
+	max-height: calc(100vh - 2rem);
+	overflow-y: auto;
+	padding: 1rem;
+	border: 1px solid var(--color-line);
+	border-radius: 12px;
+}
+
+.page-nav summary {
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--color-line);
+	font-size: 1.25rem;
+	cursor: pointer;
+}
+
+.page-nav li {
+	margin: 0.35rem 0;
+}
+
+.page-nav a {
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+}
+
+.page-nav a:hover {
+	border-bottom-color: var(--color-accent);
+}
+
+/* Attractions nested under each city */
+.page-nav ul ul {
+	margin: 0.25rem 0 0.6rem 0.4rem;
+	padding-left: 0.75rem;
+	border-left: 1px solid var(--color-line);
+}
+
+.page-nav ul ul a {
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
+/* Headings stop a little below the top edge when jumped to */
+.page-content :is(h2, h3, h4) {
+	scroll-margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+	.page-layout {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.page-nav {
+		position: static;
+		max-height: none;
+		overflow: visible;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--color-line);
+	}
+
+	.page-nav summary {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+
+	.page-nav[open] summary {
+		margin-bottom: 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--color-line);
+	}
+}
+
+
+
+/* Back to top button */
+.back-to-top {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	width: fit-content;
+	margin: 3rem auto 0;
+	padding: 0.5rem 1.1rem;
+	border: 1px solid var(--color-text);
+	border-radius: 999px;
+	font: inherit;
+	font-size: 1rem;
+	color: inherit;
+	background: transparent;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.back-to-top:hover {
+	background-color: var(--color-secondary);
+}
+
+.back-to-top:focus-visible {
+	outline: 3px solid var(--color-primary);
+	outline-offset: 3px;
+}
+
+
+/* Slideshow */
+.slideshow {
+	max-width: 800px;
+	margin: 0.75rem 0 1rem;
+}
+
+.slide {
+	margin: 0;
+}
+
+.slide img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border: 1px solid var(--color-line);
+}
+
+.slide figcaption {
+	margin-top: 0.5rem;
+	font-family: "Montserrat", sans-serif;
+	font-size: 0.875rem;
+	color: var(--color-muted);
+}
+
+.slideshow-controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0.75rem;
+}
+
+.slideshow-controls button {
+	padding: 0.4rem 1rem;
+	border: 1px solid var(--color-text);
+	border-radius: 999px;
+	font: inherit;
+	font-size: 1rem;
+	color: inherit;
+	background: transparent;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.slideshow-controls button:hover {
+	background-color: var(--color-secondary);
+}
+
+.slideshow-controls button:focus-visible {
+	outline: 3px solid var(--color-primary);
+	outline-offset: 3px;
+}
+
+.slide-count {
+	font-family: "Montserrat", sans-serif;
+	font-size: 0.875rem;
+	color: var(--color-muted);
+}
+
+/* Tinted panel for the practical guide (trial on china.html) */
+.content {
+	margin-bottom: 3rem;
+	padding: 1.5rem;
+	background-color: var(--color-footer);
+	border: 1px solid var(--color-line);
+	border-radius: 12px;
+}
+
+/* App cards keep the page background so they still read as cards inside the panel */
+.content .app-item {
+	background-color: var(--color-background);
+}
+
+/* The panel's own padding provides the bottom space */
+.content .essential-apps {
+	margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+	.content {
+		padding: 1rem;
+	}
+}
+
