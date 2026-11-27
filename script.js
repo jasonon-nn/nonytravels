@@ -24,7 +24,6 @@ const PHOTOS = {
 			{ file: "hangingtemple.jpg", alt: "The Hanging Temple built into a cliff near Mount Heng" },
 			{ file: "humbleadministratorsgarden.jpg", alt: "Ponds and pavilions in the Humble Administrator's Garden" },
 			{ file: "lingeringgarden.jpg", alt: "Rockeries and covered walkways in Lingering Garden" },
-			{ file: "pingjiangroad.jpg", alt: "The canal and traditional buildings along Pingjiang Road" },
 			{ file: "suzhou.jpg", alt: "Pingjiang Road in Suzhou" },
 			{ file: "suzhou2.jpg", alt: "Another view of Pingjiang Road" },
 			{ file: "suzhou3.jpg", alt: "A further view of Pingjiang Road" },
@@ -314,23 +313,30 @@ if (pageNav && pageContent) {
 }
 
 /* ---------- Random photos on the home page ---------- */
-// Every <img data-random-image="china"> gets a different photo on each page load.
-const randomSlots = document.querySelectorAll('img[data-random-image="china"]');
+// Every <img data-random-image="china"> (or "taiwan", or any other list in PHOTOS)
+// gets a different photo from that list on each page load.
+const randomGroups = {};
+document.querySelectorAll("img[data-random-image]").forEach((img) => {
+	const key = img.dataset.randomImage;
+	if (!randomGroups[key]) randomGroups[key] = [];
+	randomGroups[key].push(img);
+});
 
-if (randomSlots.length > 0) {
-	const { folder, items } = PHOTOS.china;
+Object.entries(randomGroups).forEach(([key, slots]) => {
+	const set = PHOTOS[key];
+	if (!set) return;
 
-	// Shuffle a copy (Fisher-Yates) so no two slots on the page share a photo
-	const pool = [...items];
+	// Shuffle a copy (Fisher-Yates) so no two slots from the same list share a photo
+	const pool = [...set.items];
 	for (let i = pool.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
 		[pool[i], pool[j]] = [pool[j], pool[i]];
 	}
 
-	randomSlots.forEach((img, i) => {
-		img.src = folder + pool[i % pool.length].file;
+	slots.forEach((img, i) => {
+		img.src = set.folder + pool[i % pool.length].file;
 	});
-}
+});
 
 /* ---------- Slideshows ---------- */
 // Any element with class "slideshow" becomes a slideshow. Without JS the
