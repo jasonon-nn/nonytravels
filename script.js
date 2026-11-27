@@ -1,5 +1,4 @@
-/* ---------- Photo lists (edit here when photos are added or removed) ---------- */
-// Browsers can't read folders, so every photo is listed here once.
+/* ---------- Photo lists ---------- */
 // The home page's random images and the Destinations slideshow both use this list.
 const PHOTOS = {
 	china: {
@@ -59,7 +58,7 @@ const PHOTOS = {
 	},
 };
 
-/* ---------- Modal triggers ---------- */
+/* Modal triggers */
 // Any element with data-open-dialog="<dialog id>" opens that dialog,
 // so one dialog in the HTML can be opened from the nav, footer, anywhere.
 document.querySelectorAll("[data-open-dialog]").forEach((trigger) => {
@@ -79,7 +78,7 @@ document.querySelectorAll("dialog").forEach((dlg) => {
 	});
 });
 
-/* ---------- Newsletter signup form (demo) ---------- */
+/*Newsletter signup form  */
 const STORAGE_KEY = "demo-newsletter-subscribers";
 const FAKE_NETWORK_DELAY = 900; // ms, makes the demo feel like a real request
 
@@ -240,7 +239,7 @@ document.querySelectorAll("form[data-newsletter-form]").forEach((form) => {
 	});
 });
 
-/* ---------- Back to top button ---------- */
+/* Back to top button */
 const backToTop = document.querySelector(".back-to-top");
 
 if (backToTop) {
@@ -339,12 +338,7 @@ Object.entries(randomGroups).forEach(([key, slots]) => {
 });
 
 /* ---------- Slideshows ---------- */
-// Any element with class "slideshow" becomes a slideshow. Without JS the
-// slides simply show stacked, so the content is never hidden.
-//   data-photos="china"  build the slides from that list in PHOTOS
-//   data-autoplay        advance automatically (with a Pause button)
-//   data-autoplay="hover" advance only while a mouse is over the card
-//   data-interval="4000" milliseconds per photo (optional)
+// Any element with class "slideshow" becomes a slideshow. 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 document.querySelectorAll(".slideshow").forEach((show) => {
