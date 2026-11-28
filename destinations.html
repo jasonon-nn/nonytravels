@@ -25,79 +25,110 @@
 		</ul>
 	</nav>
 
-	<main>
-		<section class="intro" aria-labelledby="destinations-heading">
-			<h2 id="destinations-heading">Destinations</h2>
-			<p>Explore places and stories from the road.</p>
-		</section>
+	
+<main>
+    <section class="intro" aria-labelledby="destinations-heading">
+        <h2 id="destinations-heading">Destinations</h2>
+        <p>Explore places and stories from the road.</p>
+    </section>
 
-		<section aria-label="Destination articles">
-			<ul class="destination-grid">
-				<li class="destination-card">
-					<article>
-						<div class="slideshow" data-photos="china" data-autoplay="hover" data-interval="2000" aria-roledescription="carousel" aria-label="China photos">
-							<figure class="slide" aria-roledescription="slide">
-								<img src="images/china/forbiddencity.jpg" alt="Halls and courtyard of the Forbidden City in Beijing" width="1200" height="675">
-							</figure>
-							<div class="slideshow-controls">
-								<button type="button" class="slide-prev" aria-label="Previous photo">&larr;</button>
-								<div class="slide-center">
-									<p class="slide-count" aria-live="polite"></p>
-								</div>
-								<button type="button" class="slide-next" aria-label="Next photo">&rarr;</button>
-							</div>
-						</div>
-						<div class="destination-body">
-							<h3><a href="china.html">China</a></h3>
-							<p>Discover remarkable places, cultures, and experiences across China.</p>
-							<a class="button" href="china.html">Explore China</a>
-						</div>
-					</article>
-				</li>
-				<li class="destination-card">
-					<article>
-						<div class="slideshow" data-photos="taiwan" data-autoplay="hover" data-interval="2000" aria-roledescription="carousel" aria-label="Taiwan photos">
-							<figure class="slide" aria-roledescription="slide">
-								<img src="images/taiwan/ximendingdistrict.jpg" alt="Crowds and bright signs in Taipei's Ximending District" width="1200" height="675">
-							</figure>
-							<div class="slideshow-controls">
-								<button type="button" class="slide-prev" aria-label="Previous photo">&larr;</button>
-								<div class="slide-center">
-									<p class="slide-count" aria-live="polite"></p>
-								</div>
-								<button type="button" class="slide-next" aria-label="Next photo">&rarr;</button>
-							</div>
-						</div>
-						<div class="destination-body">
-							<h3><a href="taiwan.html">Taiwan</a></h3>
-							<p>Discover Taiwan's vibrant cities, mountain landscapes, and rich food culture.</p>
-							<a class="button" href="taiwan.html">Explore Taiwan</a>
-						</div>
-					</article>
-				</li>
-				<li class="destination-card">
-					<article>
-						<div class="placeholder destination-placeholder" role="img" aria-label="Japan photos coming soon">Photos coming soon</div>
-						<div class="destination-body">
-							<h3><a href="japan.html">Japan</a></h3>
-							<p>Find stories from Japan's cities, countryside, and traditions.</p>
-							<a class="button" href="japan.html">Explore Japan</a>
-						</div>
-					</article>
-				</li>
-				<li class="destination-card">
-					<article>
-						<div class="placeholder destination-placeholder" role="img" aria-label="Hong Kong photos coming soon">Photos coming soon</div>
-						<div class="destination-body">
-							<h3><a href="hongkong.html">Hong Kong</a></h3>
-							<p>Explore Hong Kong's lively neighborhoods, harbor views, and local traditions.</p>
-							<a class="button" href="hongkong.html">Explore Hong Kong</a>
-						</div>
-					</article>
-				</li>
-			</ul>
-		</section>
-	</main>
+    <section aria-label="Destination articles">
+        <ul class="destination-grid">
+            <li class="destination-card">
+                <article>
+                    <div class="slideshow"
+                         role="region"
+                         aria-roledescription="carousel"
+                         aria-label="China photos"
+                         data-photos="china"
+                         data-autoplay="hover"
+                         data-interval="2000">
+                        <figure class="slide" aria-roledescription="slide">
+                            <img src="images/china/forbiddencity.jpg"
+                                 alt="Halls and courtyard of the Forbidden City in Beijing"
+                                 width="1200"
+                                 height="675">
+                        </figure>
+                        <div class="slideshow-controls">
+                            <button type="button" class="slide-prev" aria-label="Previous photo">&larr;</button>
+                            <div class="slide-center">
+                                <p class="slide-count" aria-live="polite"></p>
+                            </div>
+                            <button type="button" class="slide-next" aria-label="Next photo">&rarr;</button>
+                        </div>
+                    </div>
+                    <div class="destination-body">
+                        <h3><a href="china.html">China</a></h3>
+                        <p>Discover remarkable places, cultures, and experiences across China.</p>
+                        <a class="button" href="china.html">Explore China</a>
+                    </div>
+                </article>
+            </li>
+
+            <li class="destination-card">
+                <article>
+                    <div class="slideshow"
+                         role="region"
+                         aria-roledescription="carousel"
+                         aria-label="Taiwan photos"
+                         data-photos="taiwan"
+                         data-autoplay="hover"
+                         data-interval="2000">
+                        <figure class="slide" aria-roledescription="slide">
+                            <img src="images/taiwan/ximendingdistrict.jpg"
+                                 alt="Crowds and bright signs in Taipei's Ximending District"
+                                 width="1200"
+                                 height="675">
+                        </figure>
+                        <div class="slideshow-controls">
+                            <button type="button" class="slide-prev" aria-label="Previous photo">&larr;</button>
+                            <div class="slide-center">
+                                <p class="slide-count" aria-live="polite"></p>
+                            </div>
+                            <button type="button" class="slide-next" aria-label="Next photo">&rarr;</button>
+                        </div>
+                    </div>
+                    <div class="destination-body">
+                        <h3><a href="taiwan.html">Taiwan</a></h3>
+                        <p>Discover Taiwan's vibrant cities, mountain landscapes, and rich food culture.</p>
+                        <a class="button" href="taiwan.html">Explore Taiwan</a>
+                    </div>
+                </article>
+            </li>
+
+            <li class="destination-card">
+                <article>
+                    <div class="placeholder destination-placeholder"
+                         role="img"
+                         aria-label="Japan photos coming soon">
+                        Photos coming soon
+                    </div>
+                    <div class="destination-body">
+                        <h3><a href="japan.html">Japan</a></h3>
+                        <p>Find stories from Japan's cities, countryside, and traditions.</p>
+                        <a class="button" href="japan.html">Explore Japan</a>
+                    </div>
+                </article>
+            </li>
+
+            <li class="destination-card">
+                <article>
+                    <div class="placeholder destination-placeholder"
+                         role="img"
+                         aria-label="Hong Kong photos coming soon">
+                        Photos coming soon
+                    </div>
+                    <div class="destination-body">
+                        <h3><a href="hongkong.html">Hong Kong</a></h3>
+                        <p>Explore Hong Kong's lively neighborhoods, harbor views, and local traditions.</p>
+                        <a class="button" href="hongkong.html">Explore Hong Kong</a>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </section>
+</main>
+
 
 	  <footer class="site-footer">
         <div class="footer-inner">
